@@ -9,7 +9,7 @@
 import UIKit
 import Combine
 
-//INPUT()
+INPUT()
 struct MovieDetailsViewModelInput {
     /// called when a view becomes visible
     let appear: AnyPublisher<Void, Never>
