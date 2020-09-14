@@ -26,8 +26,6 @@ final class MoviesSearchViewModel: MoviesSearchViewModelType {
     }
 
     func transform(input: MoviesSearchViewModelInput) -> MoviesSearchViewModelOuput {
-        cancellables.forEach { $0.cancel() }
-        cancellables.removeAll()
 
         input.selection
             .sink(receiveValue: { [unowned self] movieId in self.navigator?.showDetails(forMovie: movieId) })

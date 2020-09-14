@@ -15,7 +15,7 @@ struct MovieViewModel {
     let title: String
     let subtitle: String
     let overview: String
-    let poster: AnyPublisher<UIImage?, Never>
+    let poster: AnyPublisher<UIImage?, Never> 
     let rating: String
 
     init(id: Int, title: String, subtitle: String, overview: String, poster: AnyPublisher<UIImage?, Never>, rating: String) {

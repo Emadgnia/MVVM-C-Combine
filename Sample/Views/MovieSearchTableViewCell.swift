@@ -27,7 +27,7 @@ class MovieSearchTableViewCell: UITableViewCell, NibProvidable, ReusableView {
         title.text = viewModel.title
         subtitle.text = viewModel.subtitle
         rating.text = viewModel.rating
-        cancellable = viewModel.poster.sink { [unowned self] image in self.showImage(image: image) }
+        poster.image = viewModel.poster
     }
 
     private func showImage(image: UIImage?) {
