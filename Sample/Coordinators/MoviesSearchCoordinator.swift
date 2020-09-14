@@ -20,7 +20,7 @@ class MoviesSearchCoordinator: BaseCoordinator {
 
     func start() {
         let searchController = self.dependencyProvider.moviesSearchController(navigator: self)
-        self.rootController.setViewControllers([searchController], animated: false)
+        self.rootController.addChild(searchController)
     }
 
 }

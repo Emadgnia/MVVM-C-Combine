@@ -21,7 +21,7 @@ struct AlertViewController {
     fileprivate func render(viewModel: AlertViewModel, sender: UIViewController) {
         let alert = UIAlertController(title: viewModel.title, message: viewModel.description, preferredStyle: .alert)
         alert.addAction(.init(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
-        sender.present(alert, animated: true, completion: nil)
+        sender.show(alert, sender: nil)
 
     }
 }

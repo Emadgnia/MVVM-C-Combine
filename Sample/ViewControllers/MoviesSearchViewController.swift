@@ -19,12 +19,12 @@ class MoviesSearchViewController : UIViewController {
     private lazy var loadingView: UIActivityIndicatorView = {
         UIActivityIndicatorView(style: .medium)
     }()
-    private lazy var tableView: UITableView = {
+    private var tableView: UITableView  {
         let tableView = UITableView(frame: self.view.frame)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         return tableView
-    }()
+    }
     private lazy var alertViewController = AlertViewController()
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -58,12 +58,13 @@ class MoviesSearchViewController : UIViewController {
     private func configureUI() {
         definesPresentationContext = true
         title = NSLocalizedString("Movies", comment: "Top Movies")
-        view.addSubview(self.tableView)
-        
+
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+        view.addSubview(self.tableView)
 
         tableView.tableFooterView = UIView()
         
@@ -122,7 +123,7 @@ fileprivate extension MoviesSearchViewController {
             tableView: tableView,
             cellProvider: {  tableView, indexPath, movieViewModel in
                 guard let cell = tableView.dequeueReusableCell(withClass: MovieSearchTableViewCell.self) else {
-                    assertionFailure("Failed to dequeue \(MovieSearchTableViewCell.self)!")
+                    preconditionFailure("Failed to dequeue \(MovieSearchTableViewCell.self)!")
                     return UITableViewCell()
                 }
                 cell.bind(to: movieViewModel)
