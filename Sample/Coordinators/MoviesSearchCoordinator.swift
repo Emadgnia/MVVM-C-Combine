@@ -10,26 +10,30 @@ import UIKit
 
 /// The `MoviesSearchCoordinator` takes control over the s on the movies search screen
 class MoviesSearchCoordinator: BaseCoordinator {
-    fileprivate let rootController: UINavigationController
+    fileprivate let rootController: UITabBarController
+    fileprivate var rootNavigationController: UINavigationController
     fileprivate let dependencyProvider: MoviesSearchCoordinatorDependencyProvider
 
-    init(rootController: UINavigationController, dependencyProvider: MoviesSearchCoordinatorDependencyProvider) {
+    init(rootController: UITabBarController, dependencyProvider: MoviesSearchCoordinatorDependencyProvider) {
         self.rootController = rootController
         self.dependencyProvider = dependencyProvider
+        self.rootNavigationController = UINavigationController()
     }
 
     func start() {
         let searchController = self.dependencyProvider.moviesSearchController(navigator: self)
-        self.rootController.setViewControllers([searchController], animated: false)
+        rootNavigationController.setViewControllers([searchController], animated: false)
+        rootNavigationController.navigationBar.tintColor = UIColor.black
+        
+        self.rootController.appendViewController(rootNavigationController)
     }
-
 }
 
 extension MoviesSearchCoordinator: MoviesSearchNavigator {
 
     func showDetails(forMovie movieId: Int) {
         let controller = self.dependencyProvider.movieDetailsController(movieId)
-        self.rootController.pushViewController(controller, animated: true)
+        self.rootNavigationController.pushViewController(controller, animated: true)
     }
 
 }

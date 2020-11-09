@@ -20,6 +20,8 @@ protocol MoviesUsageTypeProtocol {
 
     // Loads image for the given movie
     func loadImage(for movie: Movie, size: ImageSize) -> AnyPublisher<UIImage?, Never>
+    
+    func discover() -> AnyPublisher<Result<[Movie], Error>, Never>
 }
 
 final class MoviesUsageType: MoviesUsageTypeProtocol {
@@ -52,6 +54,20 @@ final class MoviesUsageType: MoviesUsageTypeProtocol {
             .map({ (result: Result<Movie, NetworkError>) -> Result<Movie, Error> in
                 switch result {
                 case .success(let movie): return .success(movie)
+                case .failure(let error): return .failure(error)
+                }
+            })
+            .subscribe(on: Scheduler.backgroundWorkScheduler)
+            .receive(on: Scheduler.mainScheduler)
+            .eraseToAnyPublisher()
+    }
+    
+    func discover() -> AnyPublisher<Result<[Movie], Error>, Never> {
+        return networkService
+            .load(Resource<Movies>.discover())
+            .map({ (result: Result<Movies, NetworkError>) -> Result<[Movie], Error> in
+                switch result {
+                case .success(let movie): return .success(movie.items)
                 case .failure(let error): return .failure(error)
                 }
             })
