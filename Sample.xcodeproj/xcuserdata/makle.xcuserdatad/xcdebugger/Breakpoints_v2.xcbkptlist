@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "0ADDB7C9-CC28-4A79-81E1-156C7C41B4F4"
+   uuid = "32B06F2E-56D1-42D7-8DE7-A7F3E3EA7785"
    type = "1"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "196AA08E-EA99-4491-B6B1-512155E977AD"
+            uuid = "342B1DC5-3453-4A20-A721-1B8A3B82FB46"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sample/ViewControllers/MoviesSearchViewController.swift"
+            filePath = "Sample/ViewModels/Discover/MoviesDiscoverViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "configureUI()"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "transform(input:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "99BE929C-6FAF-42D0-90CB-329DB3BC4508"
+            uuid = "60840072-8873-465A-8F5F-4E76B97E6A58"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sample/SceneDelegate.swift"
+            filePath = "Sample/Coordinators/MoviesDiscoverCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "scene(_:willConnectTo:options:)"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "showDetails(forMovie:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

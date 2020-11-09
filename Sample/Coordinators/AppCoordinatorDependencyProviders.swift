@@ -21,3 +21,10 @@ protocol MoviesSearchCoordinatorDependencyProvider: class {
     // Creates UIViewController to show the details of the movie with specified identifier
     func movieDetailsController(_ movieId: Int) -> UIViewController
 }
+
+
+protocol MoviesDiscoverCoordinatorDependencyProvider: class {
+    
+    func makeDiscoverViewController(navigator: MoviesSearchNavigator) -> UIViewController
+    
+}

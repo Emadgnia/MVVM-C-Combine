@@ -102,4 +102,13 @@ extension Resource {
             ]
         return Resource<Movie>(url: url, parameters: parameters)
     }
+    
+    static func discover() -> Resource<Movies> {
+        let url = ApiConstants.baseUrl.appendingPathComponent("/discover/movie")
+        let parameters: [String : CustomStringConvertible] = [
+            "api_key": ApiConstants.apiKey,
+            "language": Locale.preferredLanguages[0]
+        ]
+        return Resource<Movies>(url: url, parameters: parameters)
+    }
 }

@@ -25,6 +25,7 @@ class MoviesSearchViewController : UIViewController {
         tableView.delegate = self
         return tableView
     }()
+    private lazy var alertViewController = AlertViewController()
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
@@ -97,9 +98,11 @@ class MoviesSearchViewController : UIViewController {
             loadingView.startAnimating()
             update(with: [], animate: true)
         case .noResults:
+            alertViewController.showNoResults(sender: self)
             loadingView.stopAnimating()
             update(with: [], animate: true)
         case .failure:
+            alertViewController.showDataLoadingError(sender: self)
             loadingView.stopAnimating()
             update(with: [], animate: true)
         case .success(let movies):

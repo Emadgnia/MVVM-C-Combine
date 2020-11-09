@@ -41,3 +41,11 @@ extension AppFactory: MoviesSearchCoordinatorDependencyProvider {
         return MovieDetailsViewController(viewModel: viewModel)
     }
 }
+
+
+extension AppFactory: MoviesDiscoverCoordinatorDependencyProvider {
+    
+    func makeDiscoverViewController(navigator: MoviesSearchNavigator) -> UIViewController {
+        return MoviesDiscoverViewController(viewModel: MoviesDiscoverViewModel(usageType: usageType, navigator: navigator))
+    }
+}
