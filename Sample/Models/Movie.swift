@@ -17,6 +17,7 @@ struct Movie {
     let releaseDate: String?
     let genreIds: [GenreId]?
     let genres: [Genre]?
+    let price: Int = Int.random(in: 1..<250)
 }
 
 extension Movie: Hashable {

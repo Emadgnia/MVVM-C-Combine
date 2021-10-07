@@ -18,6 +18,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet private var subtitle: UILabel!
     @IBOutlet private var rating: UILabel!
     @IBOutlet private var overview: UILabel!
+    @IBOutlet private var price: UILabel!
 
     
     private let viewModel: MovieDetailsViewModelType
@@ -73,6 +74,7 @@ class MovieDetailsViewController: UIViewController {
         subtitle.text = movieDetails.subtitle
         rating.text = movieDetails.rating
         overview.text = movieDetails.overview
+        price.text = "\(Double(movieDetails.price) * 0.13) €"
         movieDetails.poster
             .assign(to: \UIImageView.image, on: self.poster)
             .store(in: &cancellables)

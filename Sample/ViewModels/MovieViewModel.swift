@@ -17,14 +17,16 @@ struct MovieViewModel {
     let overview: String
     let poster: AnyPublisher<UIImage?, Never>
     let rating: String
+    let price: Int
 
-    init(id: Int, title: String, subtitle: String, overview: String, poster: AnyPublisher<UIImage?, Never>, rating: String) {
+    init(id: Int, title: String, subtitle: String, overview: String, poster: AnyPublisher<UIImage?, Never>, rating: String, price: Int) {
         self.id = id
         self.title = title
         self.subtitle = subtitle
         self.overview = overview
         self.poster = poster
         self.rating = rating
+        self.price = price
     }
 }
 
@@ -45,7 +47,8 @@ struct MovieViewModelBuilder {
                               subtitle: movie.subtitle,
                               overview: movie.overview,
                               poster: imageLoader(movie),
-                              rating: String(format: "%.2f", movie.voteAverage))
+                              rating: String(format: "%.2f", movie.voteAverage),
+                              price: movie.price)
     }
 }
 
